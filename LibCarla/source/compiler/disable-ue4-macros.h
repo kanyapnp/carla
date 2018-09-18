@@ -5,20 +5,7 @@
 // For a copy, see <https://opensource.org/licenses/MIT>.
 
 #ifndef LIBCARLA_INCLUDED_DISABLE_UE4_MACROS_HEADER
-#  define LIBCARLA_INCLUDED_DISABLE_UE4_MACROS_HEADER
-#else
-#  error disable-ue4-macros.h should only be included once!
-#endif // LIBCARLA_INCLUDED_DISABLE_UE4_MACROS_HEADER
-
-#pragma push_macro("check")
-#undef check
-
-#if defined(__clang__)
-#  pragma clang diagnostic push
-#  pragma clang diagnostic ignored "-Wmissing-braces"
-#endif
-
-#define LIBCARLA_INCLUDED_FROM_UE4
+#define LIBCARLA_INCLUDED_DISABLE_UE4_MACROS_HEADER
 
 #ifndef BOOST_ERROR_CODE_HEADER_ONLY
 #  define BOOST_ERROR_CODE_HEADER_ONLY
@@ -43,5 +30,17 @@ namespace boost {
 
 } // namespace boost
 
+#endif // LIBCARLA_INCLUDED_DISABLE_UE4_MACROS_HEADER
+
+#define LIBCARLA_INCLUDED_FROM_UE4
+
+#if defined(__clang__)
+#  pragma clang diagnostic push
+#  pragma clang diagnostic ignored "-Wmissing-braces"
+#endif
+
 #pragma push_macro("TEXT")
 #undef TEXT
+
+#pragma push_macro("check")
+#undef check
